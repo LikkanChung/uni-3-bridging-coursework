@@ -1,0 +1,10 @@
+*.pyc
+*~
+/.vscode
+__pycache__
+venv_bridge
+db.sqlite3
+/static
+.DS_Store
+
+mysite/private.py
