@@ -4,6 +4,7 @@ from django.conf import settings
 # Create your models here.
 class Home(models.Model):
   title = models.CharField(max_length=200)
+  url = models.CharField(max_length=200, default="#")
   published_date = models.DateTimeField(blank=True, null=True)
 
   def publish(self):

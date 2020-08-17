@@ -1,19 +1,14 @@
-<html>
-  <head>
+{% extends 'index.html' %}
+{% block content %}
+  <h1>Blogs</h1>
 
-  </head>
-  <body>
-    <div class="container">
-      <h1>Blog Posts</h1>
-    </div>
-    <div class="container">
-      <ul>
-        {% for post in posts %}
-          <li>
-            {{post.title}}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </body>
-</html>
+  <div class="container">
+    <ul>
+      {% for post in posts %}
+        <li>
+          {{post.title}}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
