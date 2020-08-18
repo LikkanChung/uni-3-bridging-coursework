@@ -1,4 +1,69 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
 {% block content %}
-  <h1>Home</h1>
+  <div class="container home-title">
+      <div class="row home-row">
+      <div class="col-4">
+        <img src="{% static 'home/img/profile.jpg' %}" alt="Profile Image" class="home-title-image">
+      </div>
+      <div class="col-8 home-title-text">
+        <span>
+          <h1>Likkan Chung</h1>
+          <h4>4th Year MSci Computer Science</h4>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container home-links">
+    <div class="row home-row">
+      <div class="col-4">
+        <div class="home-title-link">
+          <a href="/cv">
+            <h1>CV</h1>
+          </a>
+        </div>
+      </div>
+      <div class="col-8">
+        Long text
+      </div>
+    </div>
+  </div>
+
+  <div class="container home-links">
+    <div class="row home-row">
+      <div class="col-4">
+        <div class="home-title-link">
+          <a href="/cv">
+            <h1>Portfolio</h1>
+          </a>
+        </div>
+      </div>
+      <div class="col-8">
+        Long text
+      </div>
+    </div>
+  </div>
+
+  <div class="container home-links">
+    <div class="row home-row">
+      <div class="col-4">
+        <div class="home-title-link">
+          <a href="/cv">
+            <h1>Blog</h1>
+          </a>
+        </div>
+      </div>
+      <div class="col-8">
+        <ul>
+          {% for post in posts %}
+            <li>{{post.title}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -1,0 +1,46 @@
+.home-title {
+  margin-top: 5rem;
+}
+
+.home-row {
+  margin-bottom: 2rem;
+}
+
+.home-title-image {
+  margin-left:auto;
+  padding-right: 2rem;
+  border-right: 1px solid black;
+  display:block;
+  width: auto;
+  height: 150px;
+}
+
+.home-title-link {s
+  padding-right: 2rem;
+  border-right: 1px solid black;
+  align-items: center;
+  width: auto;
+  height: 150px;
+}
+
+.home-title-link a {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left:auto;
+  padding-right: 2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.home-title-link a h1 {
+  display: block;
+  margin: auto;
+  align-items: center;
+}
+
+.home-title-text {
+  display: flex;
+  align-items: center;
+}
