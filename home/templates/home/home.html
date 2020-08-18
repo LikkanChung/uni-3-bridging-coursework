@@ -28,7 +28,15 @@
         </div>
       </div>
       <div class="col-8">
-        Long text
+        <a href="/cv" class="card-link">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Education: <span class="font-weight-normal">{{education}}</span></h5>
+              <h5 class="card-title">Experience: <span class="font-weight-normal">{{experience}}</span></h5>
+              <h5 class="card-title">Volunteering: <span class="font-weight-normal">{{volunteering}}</span></h5>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -37,13 +45,29 @@
     <div class="row home-row">
       <div class="col-4">
         <div class="home-title-link">
-          <a href="/cv">
+          <a href="/portfolio">
             <h1>Portfolio</h1>
           </a>
         </div>
       </div>
       <div class="col-8">
-        Long text
+        <div id="carouselPortfolio" class="carousel slide h-100" data-ride="carousel">
+          <div class="carousel-inner h-100">
+            {% for item in projects %}
+            <div class="carousel-item h-100 {% if forloop.counter0 == 0 %}active{% endif %}">
+              <a href="{% url 'portfolio:project_detail' pk=item.pk %}" class="card-link">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{item.start_date|date:"M, Y"}} - {{item.end_date|date:"M, Y"}}</h6>
+                    <p class="card-text">{{item.subtitle}}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -52,17 +76,29 @@
     <div class="row home-row">
       <div class="col-4">
         <div class="home-title-link">
-          <a href="/cv">
+          <a href="/blog">
             <h1>Blog</h1>
           </a>
         </div>
       </div>
       <div class="col-8">
-        <ul>
-          {% for post in posts %}
-            <li>{{post.title}}</li>
-          {% endfor %}
-        </ul>
+        <div id="carouselPortfolio" class="carousel slide h-100" data-ride="carousel">
+          <div class="carousel-inner h-100">
+            {% for item in posts %}
+            <div class="carousel-item h-100 {% if forloop.counter0 == 0 %}active{% endif %}">
+              <a href="{% url 'blog:post_detail' pk=item.pk %}" class="card-link">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{item.published_date|date:"D d M Y"}}</h6>
+                    <p class="card-text">{{item.text}}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
   </div>

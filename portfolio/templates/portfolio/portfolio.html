@@ -1,4 +1,26 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'portfolio/css/portfolio.css' %}">
+{% endblock %}
 {% block content %}
-  <h1>Portfolio</h1>
+
+  <div class="container project-title">
+    <h1>Portfolio Projects</h1>
+  </div>
+
+  <div class="container project-content">
+    {% for project in projects %}
+    <a href="{% url 'portfolio:project_detail' pk=project.pk %}" class="card-link">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title text-dark">{{project.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{project.start_date|date:"D d M Y"}} - {{project.end_date|date:"D d M Y"}}</h6>
+          <p class="card-text text-dark">{{project.subtitle}}</p>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
 {% endblock %}

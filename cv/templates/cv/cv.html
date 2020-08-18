@@ -1,4 +1,67 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'cv/css/cv.css' %}">
+{% endblock %}
 {% block content %}
-  <h1>CV</h1>
+
+  <div class="container cv-title">
+    <h1>Lik Kan Chung</h1>
+  </div>
+
+  <div class="container cv-content">
+    <div class="card-deck">
+      {% for item in contact %}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{item.type}}</h5>
+          <h6 class="card-subtitle text-muted">{{item.detail}}</h6>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container cv-content">
+    <h4>Education</h4>
+    {% for item in education %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <h6 class="subtitle">{{item.school}}, {{item.location}}</h6>
+        <h6 class="subtitle text-muted mb-2">{{item.start_date|date:"M Y"}} - {{item.end_date|date:"M Y"}}</h6>
+        <p class="card-text">{{item.text}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="container cv-content">
+    <h4>Experience</h4>
+    {% for item in experience %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{item.role}}</h5>
+        <h6 class="subtitle">{{item.location}}</h6>
+        <h6 class="subtitle text-muted mb-2">{{item.start_date|date:"M Y"}} - {{item.end_date|date:"M Y"}}</h6>
+        <p class="card-text">{{item.text}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="container cv-content">
+    <h4>Volunteering</h4>
+    {% for item in volunteering %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{item.role}}</h5>
+        <h6 class="subtitle">{{item.location}}</h6>
+        <h6 class="subtitle text-muted mb-2">{{item.start_date|date:"M Y"}} - {{item.end_date|date:"M Y"}}</h6>
+        <p class="card-text">{{item.text}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
 {% endblock %}
