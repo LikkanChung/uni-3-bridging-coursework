@@ -61,7 +61,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{item.start_date|date:"M, Y"}} - {{item.end_date|date:"M, Y"}}</h6>
-                    <p class="card-text">{{item.subtitle}}</p>
+                    <p class="card-text">{{item.subtitle | truncatechars:280}}</p>
                   </div>
                 </div>
               </a>
@@ -92,7 +92,7 @@
                   <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{item.published_date|date:"D d M Y"}}</h6>
-                    <p class="card-text">{{item.text}}</p>
+                    <p class="card-text">{{item.text | truncatechars:280}}</p>
                   </div>
                 </div>
               </a>

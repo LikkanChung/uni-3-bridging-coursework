@@ -17,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title text-dark">{{project.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{project.start_date|date:"D d M Y"}} - {{project.end_date|date:"D d M Y"}}</h6>
-          <p class="card-text text-dark">{{project.subtitle}}</p>
+          <p class="card-text text-dark">{{project.subtitle | truncatechars:280}}</p>
         </div>
       </div>
     </a>

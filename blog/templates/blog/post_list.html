@@ -17,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title text-dark">{{post.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{post.published_date|date:"D d M Y"}}</h6>
-          <p class="card-text text-dark">{{post.text}}</p>
+          <p class="card-text text-dark">{{post.text | truncatechars:280}}</p>
         </div>
       </div>
     </a>

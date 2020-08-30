@@ -32,8 +32,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # User looks for basic contact details, including a phone number, email, and address
         # phone pattern matches any UK mobile number starting +447 or 07 - with arbitrary ry whitespaeces
-        #phone_pattern = regex.compile(r"(\+(\s)?4(\s)?4(\s)?7(\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9])|(0(\s)?7(\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9])")
-        phone_pattern = regex.compile(r"\+44700 000 0000")
+        phone_pattern = regex.compile(r"(\+(\s)?4(\s)?4(\s)?7(\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9])|(0(\s)?7(\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9](\s)?[0-9])")
         phone_match = False
         # email pattern matches email addresses anon@anon.com(.com)*
         email_pattern = regex.compile(r"[a-zA-Z]+\@[a-zA-Z]+\.[a-zA-Z]+(\.[a-zA-Z]+)*")

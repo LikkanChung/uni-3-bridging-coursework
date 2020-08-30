@@ -6,3 +6,11 @@
 .cv-content {
   margin-bottom:2rem;
 }
+
+.cv-content h3 {
+  margin-bottom: 1rem;
+}
+
+.cv-edit a:link, a:hover {
+  text-decoration: none;
+}

@@ -8,6 +8,7 @@
     {% endblock %}
   </head>
   <body>
+    <span class="glyphicon glyphicon-pencil"></span>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="#"></a>
@@ -37,7 +38,16 @@
   <footer>
     <div class="navbar navbar-expand-lg footer-div">
       <div class="container">
-        <footer>&copy; Lik Kan Chung 2020</footer>
+        <footer class="text-muted">
+          &copy; Lik Kan Chung 2020
+        </footer>
+        <span class="float-right text-muted">
+          {% if user.is_authenticated %}
+            Logged in as: {{user}}
+          {% endif %}
+          <br>
+          <a href="/admin" class="float-right text-muted text-decoration-none">Admin Panel</a>
+        </span>
       </div>
     </div>
   </footer>
