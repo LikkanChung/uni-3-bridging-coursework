@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load markdownify %}
 {% block title %}Blog - Likkan Chung{% endblock %}
 {% block head %}
   <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
@@ -12,7 +13,7 @@
   </div>
 
   <div class="container blog-content">
-    {{post.text}}
+    {{post.text | markdownify}}
   </div>
 
 {% endblock %}

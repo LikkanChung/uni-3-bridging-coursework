@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load markdownify %}
 {% block title %}CV - Likkan Chung{% endblock %}
 {% block head %}
   <link rel="stylesheet" href="{% static 'cv/css/cv.css' %}">
@@ -16,7 +17,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{item.type}}</h5>
-          <h6 class="card-subtitle text-muted">{{item.detail}}</h6>
+          <h6 class="card-subtitle text-muted cv-suppress-link-decoration">{{item.detail | markdownify}}</h6>
         </div>
         {% if user.is_authenticated %}
         <div class="card-footer text-muted">
@@ -36,7 +37,7 @@
         <h5 class="card-title">{{item.name}}</h5>
         <h6 class="subtitle">{{item.school}}, {{item.location}}</h6>
         <h6 class="subtitle text-muted mb-2">{{item.start_date|date:"M Y"}} - {{item.end_date|date:"M Y"}}</h6>
-        <p class="card-text">{{item.text}}</p>
+        <p class="card-text">{{item.text | markdownify}}</p>
       </div>
       {% if user.is_authenticated %}
       <div class="card-footer text-muted">
@@ -55,7 +56,7 @@
         <h5 class="card-title">{{item.role}}</h5>
         <h6 class="subtitle">{{item.location}}</h6>
         <h6 class="subtitle text-muted mb-2">{{item.start_date|date:"M Y"}} - {{item.end_date|date:"M Y"}}</h6>
-        <p class="card-text">{{item.text}}</p>
+        <p class="card-text">{{item.text | markdownify}}</p>
       </div>
       {% if user.is_authenticated %}
       <div class="card-footer text-muted">
@@ -74,7 +75,7 @@
         <h5 class="card-title">{{item.role}}</h5>
         <h6 class="subtitle">{{item.location}}</h6>
         <h6 class="subtitle text-muted mb-2">{{item.start_date|date:"M Y"}} - {{item.end_date|date:"M Y"}}</h6>
-        <p class="card-text">{{item.text}}</p>
+        <p class="card-text">{{item.text | markdownify}}</p>
       </div>
       {% if user.is_authenticated %}
       <div class="card-footer text-muted">

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load markdownify %}
 {% block title %}Blog - Likkan Chung{% endblock %}
 {% block head %}
   <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
@@ -14,10 +15,10 @@
     {% for post in posts %}
     <a href="{% url 'blog:post_detail' pk=post.pk %}" class="card-link">
       <div class="card h-100">
-        <div class="card-body">
+        <div class="card-body text-dark">
           <h5 class="card-title text-dark">{{post.title}}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{{post.published_date|date:"D d M Y"}}</h6>
-          <p class="card-text text-dark">{{post.text | truncatechars:280}}</p>
+          <p class="card-text text-dark blog-suppress-link-decoration">{{post.text | markdownify | truncatechars:280}}</p>
         </div>
       </div>
     </a>

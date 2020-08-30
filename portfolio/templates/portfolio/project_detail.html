@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load markdownify %}
 {% block title %}Portfolio - Likkan Chung{% endblock %}
 {% block head %}
   <link rel="stylesheet" href="{% static 'portfolio/css/portfolio.css' %}">
@@ -12,7 +13,7 @@
   </div>
 
   <div class="container project-content">
-    {{project.text}}
+    {{project.text | markdownify}}
   </div>
 
 {% endblock %}

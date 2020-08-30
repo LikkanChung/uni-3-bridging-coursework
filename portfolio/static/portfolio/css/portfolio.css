@@ -6,3 +6,8 @@
 .project-content {
   margin-bottom: 2rem;
 }
+
+.portfolio-suppress-link-decoration p{
+  text-decoration: none;
+  color: inherit;
+}

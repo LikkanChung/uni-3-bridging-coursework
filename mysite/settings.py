@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'cv.apps.CvConfig',
     'portfolio.apps.PortfolioConfig',
+    'markdownify',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MARKDOWNIFY_STRIP = False
+MARKDOWNIFY_WHITELIST_TAGS = {
+ 'a', 'p',
+ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7',
+ 'ul', 'li', 'span',
+}

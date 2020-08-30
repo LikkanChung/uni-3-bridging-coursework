@@ -14,3 +14,8 @@
 .cv-edit a:link, a:hover {
   text-decoration: none;
 }
+
+.cv-suppress-link-decoration p a{
+  text-decoration: none;
+  color: inherit;
+}
