@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 from cv.views import cv
 from cv.models import Contact, Education, Experience, Volunteering
+import datetime
 
 class CVTest(TestCase):
     def test_cv_url_resolves_to_cv_view(self):
@@ -39,4 +40,54 @@ class CVTest(TestCase):
         self.assertTrue(after_count == initial_count + 1)
         self.assertTrue(match)
 
-    # TODO: add more rest cases
+    def test_cv_education_model_add_full(self):
+        initial_count = Education.objects.count()
+        new = Education()
+        new.name = "test_add_full_name"
+        new.school = "test_add_full_school"
+        new.location = "test_add_full_location"
+        new.start_date = datetime.datetime(2019,1,1,12,0,0,0, datetime.timezone(datetime.timedelta(hours=0), name="UTC"))
+        new.end_date = datetime.datetime(2020,1,1,12,0,0,0, datetime.timezone(datetime.timedelta(hours=0), name="UTC"))
+        new.text = "test_add_full_text"
+        new.publish()
+        after_count = Education.objects.count()
+        match = False
+        for item in Education.objects.all():
+            if item.name == new.name and item.school == new.school and item.location == new.location and item.start_date.isoformat() == new.start_date.isoformat() and item.end_date.isoformat() == new.end_date.isoformat() and item.text == new.text:
+                match = True
+        self.assertTrue(after_count == initial_count + 1)
+        self.assertTrue(match)
+
+    def test_cv_experience_model_add_full(self):
+        initial_count = Experience.objects.count()
+        new = Experience()
+        new.role = "test_add_full_role"
+        new.locaion = "test_add_full_location"
+        new.start_date = datetime.datetime(2019,1,1,12,0,0,0, datetime.timezone(datetime.timedelta(hours=0), name="UTC"))
+        new.end_date = datetime.datetime(2020,1,1,12,0,0,0, datetime.timezone(datetime.timedelta(hours=0), name="UTC"))
+        new.text = "test_add_full_text"
+        new.publish()
+        after_count = Experience.objects.count()
+        match = False
+        for item in Experience.objects.all():
+            if item.role == new.role and item.location == new.location and item.start_date.isoformat() == new.start_date.isoformat() and item.end_date.isoformat() == new.end_date.isoformat() and item.text == new.text:
+                match = True
+        self.assertTrue(after_count == initial_count + 1)
+        self.assertTrue(match)
+
+    def test_cv_vounteering_model_add_full(self):
+        initial_count = Volunteering.objects.count()
+        new = Volunteering()
+        new.role = "test_add_full_role"
+        new.locaion = "test_add_full_location"
+        new.start_date = datetime.datetime(2019,1,1,12,0,0,0, datetime.timezone(datetime.timedelta(hours=0), name="UTC"))
+        new.end_date = datetime.datetime(2020,1,1,12,0,0,0, datetime.timezone(datetime.timedelta(hours=0), name="UTC"))
+        new.text = "test_add_full_text"
+        new.publish()
+        after_count = Volunteering.objects.count()
+        match = False
+        for item in Volunteering.objects.all():
+            if item.role == new.role and item.location == new.location and item.start_date.isoformat() == new.start_date.isoformat() and item.end_date.isoformat() == new.end_date.isoformat() and item.text == new.text:
+                match = True
+        self.assertTrue(after_count == initial_count + 1)
+        self.assertTrue(match)
