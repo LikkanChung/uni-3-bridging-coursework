@@ -54,3 +54,7 @@
   text-decoration: none;
   color:black;
 }
+
+.height-of-left {
+  max-height: 150px;
+}

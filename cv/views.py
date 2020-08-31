@@ -7,9 +7,9 @@ from django.shortcuts import redirect, get_object_or_404
 # Create your views here.
 def cv(request):
     contact = Contact.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    education = Education.objects.filter(published_date__lte=timezone.now()).order_by('end_date')
-    experience = Experience.objects.filter(published_date__lte=timezone.now()).order_by('end_date')
-    volunteering = Volunteering.objects.filter(published_date__lte=timezone.now()).order_by('end_date')
+    education = Education.objects.filter(published_date__lte=timezone.now()).order_by('-end_date')
+    experience = Experience.objects.filter(published_date__lte=timezone.now()).order_by('-end_date')
+    volunteering = Volunteering.objects.filter(published_date__lte=timezone.now()).order_by('-end_date')
     return render(request, 'cv/cv.html', {'contact': contact, 'education': education, 'experience': experience, 'volunteering': volunteering})
 
 def cv_add_contact(request):

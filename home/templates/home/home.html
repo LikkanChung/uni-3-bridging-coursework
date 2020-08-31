@@ -56,13 +56,13 @@
         <div id="carouselPortfolio" class="carousel slide h-100" data-ride="carousel">
           <div class="carousel-inner h-100">
             {% for item in projects %}
-            <div class="carousel-item h-100 {% if forloop.counter0 == 0 %}active{% endif %}">
+            <div class="carousel-item h-100 height-of-left {% if forloop.counter0 == 0 %}active{% endif %}">
               <a href="{% url 'portfolio:project_detail' pk=item.pk %}" class="card-link">
                 <div class="card h-100">
                   <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{item.start_date|date:"M, Y"}} - {{item.end_date|date:"M, Y"}}</h6>
-                    <p class="card-text">{{item.subtitle | markdownify | truncatechars:280}}</p>
+                    <p class="card-text">{{item.subtitle | markdownify | truncatechars:140}}</p>
                   </div>
                 </div>
               </a>
@@ -87,13 +87,13 @@
         <div id="carouselPortfolio" class="carousel slide h-100" data-ride="carousel">
           <div class="carousel-inner h-100">
             {% for item in posts %}
-            <div class="carousel-item h-100 {% if forloop.counter0 == 0 %}active{% endif %}">
+            <div class="carousel-item h-100 height-of-left {% if forloop.counter0 == 0 %}active{% endif %}">
               <a href="{% url 'blog:post_detail' pk=item.pk %}" class="card-link">
                 <div class="card h-100">
                   <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{item.published_date|date:"D d M Y"}}</h6>
-                    <p class="card-text">{{item.text | markdownify | truncatechars:280}}</p>
+                    <p class="card-text">{{item.text | markdownify | truncatechars:140}}</p>
                   </div>
                 </div>
               </a>
