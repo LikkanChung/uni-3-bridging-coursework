@@ -11,4 +11,4 @@ def home(request):
     experience = Experience.objects.filter(published_date__lte=timezone.now()).order_by('end_date').first()
     volunteering = Volunteering.objects.filter(published_date__lte=timezone.now()).order_by('end_date').first()
     projects = Project.objects.filter(published_date__lte=timezone.now()).order_by('-end_date')
-    return render(request, 'home/home.html', {'posts': posts, 'education': education, 'experience': experience, 'projects': projects})
+    return render(request, 'home/home.html', {'posts': posts, 'education': education, 'experience': experience, 'volunteering': volunteering, 'projects': projects})
